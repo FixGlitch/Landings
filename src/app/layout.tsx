@@ -1,8 +1,9 @@
 "use client";
 
-import Sidebar from "@/components/SideBar/SideBar";
+import { useState, useEffect } from "react";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import Loader from "@/components/common/Loader";
 import "./globals.css";
-import { useState } from "react";
 
 export default function RootLayout({
   children,
@@ -10,6 +11,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <html lang="es" suppressHydrationWarning>
@@ -18,7 +28,15 @@ export default function RootLayout({
         <div className="h-screen flex">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <div className="flex-1 flex flex-col overflow-hidden">
-            <main className="flex-1 overflow-auto p-4">{children}</main>
+            <main className="flex-1 overflow-auto">
+              {loading ? (
+                <div className="flex justify-center items-center h-screen">
+                  <Loader />
+                </div>
+              ) : (
+                children
+              )}
+            </main>
           </div>
         </div>
       </body>
