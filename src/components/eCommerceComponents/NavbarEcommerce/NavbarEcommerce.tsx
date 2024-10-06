@@ -1,15 +1,16 @@
 "use client";
 import { Heart, ShoppingCart, User, Search, ChevronDown } from "lucide-react";
 
-const Navbar = () => {
+const NavbarEcommerce = () => {
   return (
     <header className="border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-8 flex flex-wrap items-center justify-between">
         <div className="flex items-center space-x-4">
           <div className="w-8 h-8 bg-indigo-600"></div>
-          <h1 className="text-xl font-bold">Logo</h1>
+          
         </div>
-        <div className="flex-1 max-w-xl px-4 relative">
+        
+        <div className="flex-1 w-full mt-4 sm:mt-0 max-w-full sm:max-w-md lg:max-w-xl px-4 relative">
           <input
             type="search"
             placeholder="Search among 100+ products"
@@ -20,8 +21,8 @@ const Navbar = () => {
             size={20}
           />
         </div>
-        <div className="flex items-center space-x-4">
-          <button className="p-2">
+        <div className="flex items-center space-x-2 sm:space-x-4 mt-4 sm:mt-0">
+          <button className="p-2 text-sm">
             ENG <ChevronDown size={16} className="inline" />
           </button>
           <button className="p-2">
@@ -39,4 +40,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarEcommerce;

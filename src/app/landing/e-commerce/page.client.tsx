@@ -1,14 +1,14 @@
 "use client";
 
-import Navbar from "@/components/eCommerceComponents/Navbar/Navbar";
-import Sidebar from "@/components/eCommerceComponents/Sidebar/SideBar";
+import Navbar from "@/components/eCommerceComponents/NavbarEcommerce/NavbarEcommerce";
+import Sidebar from "@/components/eCommerceComponents/SidebarEcommerce/SideBarEcommerce";
 import { Heart, ShoppingCart, User, Search, ChevronDown } from "lucide-react";
 
 const ECommercePage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container">
         <div className="flex">
           <Sidebar />
           <div className="flex-1">

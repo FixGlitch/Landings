@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import SidebarLinkGroup from "./SidebarComponents/SideBarLInkGroup";
+import SidebarLinkGroup from "./SidebarComponents/SidebarLInkGroup";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -116,7 +116,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <ul className="mb-6 flex flex-col gap-1.5">
                 <SidebarLinkGroup
                   activeCondition={
-                    pathname === "/" || pathname.includes("nicio")
+                    pathname === "/" || pathname.includes("home")
                   }
                 >
                   {(handleClick, open) => {
@@ -125,7 +125,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         <Link
                           href="#"
                           className={`group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-primary duration-300 ease-in-out hover:bg-aquamarine-300 ${
-                            (pathname === "/" || pathname.includes("nicio")) &&
+                            (pathname === "/" || pathname.includes("home")) &&
                             "bg-aquamarine-100"
                           }`}
                           onClick={(e) => {
