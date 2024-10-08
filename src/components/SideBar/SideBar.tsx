@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         onClick={() => setSidebarOpen(!sidebarOpen)}
         aria-controls="sidebar"
         aria-expanded={sidebarOpen}
-        className="fixed top-4 left-4 z-50 p-2 bg-white shadow-md rounded-md"
+        className="fixed top-8 left-2 z-50 p-2 bg-white shadow-md rounded-md"
       >
         <svg
           width="24"

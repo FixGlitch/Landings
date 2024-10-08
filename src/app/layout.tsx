@@ -22,12 +22,11 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head />
-      <body className="bg-aquamarine-100 h-screen overflow-hidden">
-        <div className="h-screen flex">
+    <html suppressHydrationWarning lang="en">
+      <body className="bg-gradient-to-b from-aquamarine-200 to-aquamarine-100">
+        <div className="flex h-screen overflow-hidden">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <main className="flex-1 overflow-auto">
               {loading ? (
                 <div className="flex justify-center items-center h-screen">
