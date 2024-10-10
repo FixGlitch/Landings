@@ -10,9 +10,12 @@ const ECommercePage = () => {
   return (
     <>
       <div className="flex h-screen overflow-hidden">
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <div className={`transition-all duration-300 ${sidebarOpen ? "w-64" : "w-0"} flex-shrink-0`}>
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        </div>
         <div className="bg-white relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           <Navbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+
           <main className="flex-1 p-6 overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Sweatshirt</h2>
@@ -56,15 +59,12 @@ const ECommercePage = () => {
               ))}
             </div>
 
+            {/* Pagination */}
             <div className="mt-8 flex justify-center space-x-2">
               <button className="px-3 py-1 border rounded">Previous</button>
-              <button className="px-3 py-1 border rounded bg-gray-200">
-                1
-              </button>
+              <button className="px-3 py-1 border rounded bg-gray-200">1</button>
               <button className="px-3 py-1 border rounded">2</button>
-              <button className="px-3 py-1 border rounded bg-indigo-600 text-white">
-                3
-              </button>
+              <button className="px-3 py-1 border rounded bg-indigo-600 text-white">3</button>
               <button className="px-3 py-1 border rounded">4</button>
               <button className="px-3 py-1 border rounded">Next</button>
             </div>

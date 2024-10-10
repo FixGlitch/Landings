@@ -2,9 +2,7 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 
 module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     fontFamily: {
@@ -13,7 +11,8 @@ module.exports = {
     colors: {
       current: "currentColor",
       transparent: "transparent",
-      white: "#ffffff",
+      white: "#FFFFFF",
+      gray: "#d1d1d1",
       black: "#000000",
       aquamarine: {
         50: "#EDFEFE",
@@ -27,6 +26,19 @@ module.exports = {
         800: "#1C5E6E",
         900: "#1C4E5D",
         950: "#0D343F",
+      },
+      ecommerce: {
+        50: "#f4f1fc",
+        100: "#e4dbfa",
+        200: "#c4b2f4",
+        300: "#a489ee",
+        400: "#8461e8",
+        500: "#6438e2",
+        600: "#522eb5",
+        700: "#412488",
+        800: "#321d83",
+        900: "#311a5b",
+        950: "#20102f",
       },
       primary: "#1C4E5D",
       secondary: "#32D1DE",

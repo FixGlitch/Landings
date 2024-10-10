@@ -80,11 +80,11 @@ const SidebarEcommerce = ({
     <>
       <aside
         ref={sidebar}
-        className={`fixed left-0 top-0 z-40 h-screen w-72 bg-white border-r-2 border-aquamarine-900  transition-transform duration-300 ease-linear transform ${
+        className={`absolute left-0 top-0 z-40 flex h-screen w-64 flex-col overflow-y-hidden border-r-2 border-gray bg-white duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-row-reverse items-center justify-between gap-2 mx-10 py-8">
+        <div className="flex flex-row-reverse items-center justify-between gap-2 mx-10 py-10">
           <button
             ref={trigger}
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -101,42 +101,40 @@ const SidebarEcommerce = ({
             >
               <path
                 d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#1C4E5D"
+                stroke="#321d83"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M12 8L8 12L12 16"
-                stroke="#1C4E5D"
+                stroke="#321d83"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M16 12H8"
-                stroke="#1C4E5D"
+                stroke="#321d83"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
             </svg>
           </button>
-          <h1 className="ml-10 text-aquamarine-900 text-4xl md:text-xl font-bold">
+          <h1 className="ml-10 text-black text-4xl md:text-xl font-bold">
             Logo
           </h1>
         </div>
-        <Separator />
-        <h2 className="text-aquamarine-900 font-semibold p-6">Category</h2>
+        <Separator fullWidth />
+        <h2 className="text-black text-xl font-bold p-6">Category</h2>
         <ul className="mb-6 flex flex-col gap-1.5">
           {ecommerceItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`group relative flex items-center gap-2.5 rounded-md mx-5 p-2 font-medium text-primary duration-300 ease-in-out hover:text-aquamarine-300 hover:bg-aquamarine-50 focus:outline-none focus:ring-2 focus:ring-aquamarine-500 focus:ring-opacity-50 ${
-                  pathname === item.href
-                    ? "text-aquamarine-900 bg-aquamarine-100"
-                    : ""
+                className={`group relative flex items-center gap-2.5 rounded-md mx-10 py-2 font-medium text-black hover:font-semibold duration-300 ease-in-out hover:text-ecommerce-500 ${
+                  pathname === item.href ? "text-black " : ""
                 }`}
               >
                 {item.label}
@@ -147,9 +145,7 @@ const SidebarEcommerce = ({
         <Separator />
         <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
           <nav>
-            <h2 className="text-aquamarine-900 font-semibold p-6">
-              Filter by:
-            </h2>
+            <h2 className="text-black font-semibold p-6">Filter by:</h2>
             <ul className="mb-6 flex flex-col gap-1.5">
               <SidebarLinkGroup
                 activeCondition={pathname === "/" || pathname.includes("type")}
@@ -159,9 +155,8 @@ const SidebarEcommerce = ({
                     <React.Fragment>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-aquamarine-900 font-semibold duration-300 ease-in-out hover:bg-aquamarine-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aquamarine-500 focus:ring-opacity-50 ${
-                          (pathname === "/" || pathname.includes("type")) &&
-                          "bg-aquamarine-100"
+                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-black font-semibold  ${
+                          (pathname === "/" || pathname.includes("type")) && ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -199,7 +194,7 @@ const SidebarEcommerce = ({
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                           {typeItems.map((item) => (
                             <li key={item.value}>
-                              <label className="text-aquamarine-900 hover:text-aquamarine-300 mx-5 cursor-pointer">
+                              <label className="text-black hover:text-ecommerce-500 hover:font-bold mx-5 cursor-pointer">
                                 <input
                                   type="checkbox"
                                   className="mr-2"
@@ -227,9 +222,9 @@ const SidebarEcommerce = ({
                     <React.Fragment>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-aquamarine-900 font-semibold duration-300 ease-in-out hover:bg-aquamarine-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aquamarine-500 focus:ring-opacity-50 ${
+                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-black font-semibold  ${
                           (pathname === "/" || pathname.includes("colour")) &&
-                          "bg-aquamarine-100"
+                          ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -268,7 +263,7 @@ const SidebarEcommerce = ({
                           <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                             {colorsItems.map((item) => (
                               <li key={item.value}>
-                                <label className="text-aquamarine-900 hover:text-aquamarine-300 mx-5 cursor-pointer">
+                                <label className="text-black hover:text-ecommerce-500 hover:font-bold mx-5 cursor-pointer">
                                   <input
                                     type="checkbox"
                                     className="mr-2"
@@ -295,9 +290,8 @@ const SidebarEcommerce = ({
                     <React.Fragment>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-aquamarine-900 font-semibold duration-300 ease-in-out hover:bg-aquamarine-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aquamarine-500 focus:ring-opacity-50 ${
-                          (pathname === "/" || pathname.includes("size")) &&
-                          "bg-aquamarine-100"
+                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-black font-semibold  ${
+                          (pathname === "/" || pathname.includes("size")) && ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -336,7 +330,7 @@ const SidebarEcommerce = ({
                           <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                             {sizeItems.map((item) => (
                               <li key={item.value}>
-                                <label className="text-aquamarine-900 hover:text-aquamarine-300 mx-5 cursor-pointer">
+                                <label className="text-black hover:text-ecommerce-500 hover:font-bold mx-5 cursor-pointer">
                                   <input
                                     type="checkbox"
                                     className="mr-2"
@@ -363,9 +357,8 @@ const SidebarEcommerce = ({
                     <React.Fragment>
                       <Link
                         href="#"
-                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-aquamarine-900 font-semibold duration-300 ease-in-out hover:bg-aquamarine-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-aquamarine-500 focus:ring-opacity-50 ${
-                          (pathname === "/" || pathname.includes("price")) &&
-                          "bg-aquamarine-100"
+                        className={`group relative flex items-center gap-2.5 rounded-md mx-5 px-4 py-2 text-black font-semibold  ${
+                          (pathname === "/" || pathname.includes("price")) && ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
@@ -409,7 +402,7 @@ const SidebarEcommerce = ({
                               max="1000"
                               step="10"
                             />
-                            <div className="flex justify-between text-aquamarine-900 mx-5">
+                            <div className="flex justify-between text-black mx-5">
                               <span>${priceFilter.min}</span>
                               <span>${priceFilter.max}</span>
                             </div>
@@ -423,14 +416,14 @@ const SidebarEcommerce = ({
             </ul>
           </nav>
         </div>
-        <div className="bg-white flex items-center justify-between py-10 mx-10 mt-auto">
-          <button className="w-3/4 bg-aquamarine-500 text-primary font-semibold py-2 rounded shadow-md transition duration-300 ease-in-out hover:bg-aquamarine-400 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-aquamarine-700 focus:ring-opacity-50">
+        <div className="bg-white flex items-center justify-between py-10 mx-5 mt-auto">
+          <button className="w-[60%] bg-ecommerce-900 text-white font-semibold p-4 rounded shadow-md transition duration-300 ease-in-out hover:bg-ecommerce-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ecommerce-400 focus:ring-opacity-50">
             Apply
           </button>
 
-          <button className="p-2 rounded-md border border-aquamarine-900 shadow-md transition duration-300 ease-in-out transform hover:bg-danger-secondaryHover hover:scale-105 hover:border-danger-primary focus:outline-none focus:ring-2 focus:ring-danger-primary focus:ring-opacity-50">
+          <button className="p-4 rounded-md border border-ecommerce-900 shadow-md transition duration-300 ease-in-out transform hover:bg-danger-secondaryHover hover:scale-105 hover:border-danger-primary focus:outline-none focus:ring-2 focus:ring-danger-primary focus:ring-opacity-50">
             <Trash
-              color="#1C4E5D"
+              color="#311a5b"
               size={20}
               className="hover:stroke-danger-primary transition duration-300 ease-in-out"
             />
