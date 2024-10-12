@@ -101,21 +101,21 @@ const SidebarEcommerce = ({
             >
               <path
                 d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#321d83"
+                stroke="#6438e2"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M12 8L8 12L12 16"
-                stroke="#321d83"
+                stroke="#6438e2"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M16 12H8"
-                stroke="#321d83"
+                stroke="#6438e2"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -417,11 +417,11 @@ const SidebarEcommerce = ({
           </nav>
         </div>
         <div className="bg-white flex items-center justify-between py-10 mx-5 mt-auto">
-          <button className="w-[60%] bg-ecommerce-900 text-white font-semibold p-4 rounded shadow-md transition duration-300 ease-in-out hover:bg-ecommerce-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ecommerce-400 focus:ring-opacity-50">
+          <button className="w-[60%] bg-ecommerce-500 text-white font-semibold p-4 rounded-lg shadow-md transition duration-300 ease-in-out hover:bg-ecommerce-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ecommerce-400 focus:ring-opacity-50">
             Apply
           </button>
 
-          <button className="p-4 rounded-md border border-ecommerce-900 shadow-md transition duration-300 ease-in-out transform hover:bg-danger-secondaryHover hover:scale-105 hover:border-danger-primary focus:outline-none focus:ring-2 focus:ring-danger-primary focus:ring-opacity-50">
+          <button className="p-4 rounded-lg border border-ecommerce-900 shadow-md transition duration-300 ease-in-out transform hover:bg-danger-secondaryHover hover:scale-105 hover:border-danger-primary focus:outline-none focus:ring-2 focus:ring-danger-primary focus:ring-opacity-50">
             <Trash
               color="#311a5b"
               size={20}

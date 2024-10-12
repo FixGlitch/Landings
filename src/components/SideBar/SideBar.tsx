@@ -189,13 +189,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
                             <li className="">
                               <Link
-                                href="/landing/e-commerce"
+                                href="/ecommerce"
                                 className={`group relative flex items-center gap-2.5 rounded-md p-2 font-medium text-primary duration-300 ease-in-out hover:text-aquamarine-300 hover:bg-aquamarine-50 ${
-                                  pathname === "/landing/e-commerce" &&
+                                  pathname === "/ecommerce" &&
                                   "text-primary"
                                 }`}
                               >
-                                eCommerce
+                                Ecommerce
                               </Link>
                             </li>
                           </ul>

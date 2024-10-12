@@ -1,6 +1,7 @@
 "use client";
+
 import { Heart, ShoppingCart, User, Search } from "lucide-react";
-import DropdownLanguage from "./DropdownLanguage";
+import DropdownLanguageEcommerce from "./DropdownLanguageEcommerce";
 
 const NavbarEcommerce = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -27,28 +28,27 @@ const NavbarEcommerce = (props: {
             >
               <path
                 d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="#321d83"
+                stroke="#6438e2"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M12 16L16 12L12 8"
-                stroke="#321d83"
+                stroke="#6438e2"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M8 12H16"
-                stroke="#321d83"
+                stroke="#6438e2"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             </svg>
           </button>
-
           <h1 className="ml-10 text-black text-4xl md:text-xl font-bold lg:hidden">
             Logo
           </h1>
@@ -64,9 +64,8 @@ const NavbarEcommerce = (props: {
             />
           </div>
         </div>
-
         <div className="flex items-center space-x-2 sm:space-x-4 mt-4 sm:mt-0">
-          <DropdownLanguage />
+          <DropdownLanguageEcommerce />
           <button className="flex flex-row text-sm p-4 bg-ecommerce-100 gap-2 rounded-lg text-black hover:text-ecommerce-500 font-semibold hover:font-bold hover:bg-ecommerce-50 focus:outline-none focus:ring-2 focus:ring-ecommerce-500 focus:ring-opacity-50">
             Wishlist
             <Heart size={20} />

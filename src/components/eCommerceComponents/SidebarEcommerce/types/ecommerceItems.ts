@@ -9,12 +9,12 @@ interface SidebarItem {
 }
 
 const ecommerceItems: NavItem[] = [
-  { href: "/e-commerce/t-shirt", label: "T-Shirt" },
-  { href: "/e-commerce/sweatshirt", label: "Sweatshirt" },
-  { href: "/e-commerce/dress", label: "Dress" },
-  { href: "/e-commerce/pants-and-skirt", label: "Pants and Skirt" },
-  { href: "/e-commerce/sweater", label: "Sweater" },
-  { href: "/e-commerce/stuff-and-accessories", label: "Stuff and Accessories" },
+  { href: "/ecommerce/t-shirt", label: "T-Shirt" },
+  { href: "/ecommerce/sweatshirt", label: "Sweatshirt" },
+  { href: "/ecommerce/dress", label: "Dress" },
+  { href: "/ecommerce/pants-and-skirt", label: "Pants and Skirt" },
+  { href: "/ecommerce/sweater", label: "Sweater" },
+  { href: "/ecommerce/stuff-and-accessories", label: "Stuff and Accessories" },
 ];
 
 const typeItems: SidebarItem[] = [
