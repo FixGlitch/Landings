@@ -134,7 +134,7 @@ const SidebarEcommerce = ({
               <Link
                 href={item.href}
                 className={`group relative flex items-center gap-2.5 rounded-md mx-10 py-2 font-medium text-black hover:font-semibold duration-300 ease-in-out hover:text-ecommerce-500 ${
-                  pathname === item.href ? "text-black " : ""
+                  pathname === item.href ? "text-ecommerce-500 font-semibold " : ""
                 }`}
               >
                 {item.label}
