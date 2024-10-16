@@ -1,8 +1,9 @@
 import CarouselEcommerce from "@/components/EcommerceComponents/CarouselEcommerce/CarouselEcommerce";
 import HotSaleCardEcommerce from "@/components/EcommerceComponents/HotSaleCardEcommerce/HotSaleCardEcommerce";
+import { spotData } from "@/components/EcommerceComponents/SpotCardEcommerce/customs/spotcustoms";
 import SpotCardEcommerce from "@/components/EcommerceComponents/SpotCardEcommerce/SpotCardEcommerce";
 
-export const metadata = { title: "ECommerce" };
+export const metadata = { title: "Ecommerce" };
 
 const ECommerceHomePage = () => {
   return (
@@ -11,13 +12,13 @@ const ECommerceHomePage = () => {
         <CarouselEcommerce />
         <div className="w-3/5 mx-auto py-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {[...Array(3)].map((_, i) => (
+            {spotData.map((spot, i) => (
               <SpotCardEcommerce
                 key={i}
-                imageSrc={`/ecommerce/landing/spot-${i + 1}.jpg`}
-                title={`Title Name ${i + 1}`}
-                subTitle={`SubTitle Name ${i + 1}`}
-                href="/ecommerce"
+                imageSrc={spot.imageSrc}
+                title={spot.title}
+                subTitle={spot.subTitle}
+                href={spot.href}
               />
             ))}
           </div>

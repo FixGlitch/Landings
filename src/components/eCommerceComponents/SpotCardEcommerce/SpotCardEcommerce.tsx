@@ -27,8 +27,15 @@ const SpotCardEcommerce = ({
       </Link>
       <div className="px-4 pb-4">
         <div className="flex flex-col justify-between items-center">
-          <h3 className="font-bold text-md mb-2 text-black">{title}</h3>
-          <span className="font-bold text-md text-black">{subTitle}</span>
+          <Link
+            href={href}
+            className="font-bold text-md mb-2 text-black hover:text-ecommerce-500"
+          >
+            {title}
+          </Link>
+          <Link href={href} className="font-medium text-md text-black">
+            {subTitle}
+          </Link>
         </div>
       </div>
     </div>

@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Breadcrumb from "@/components/common/BreadCrumb";
 import LabelsEcommerce from "@/components/EcommerceComponents/LabelsEcommerce/LabelsEcommerce";
 import ProductCardEcommerce from "@/components/EcommerceComponents/ProductCardEcommerce/ProductCardEcommerce";
 import PaginationEcommerce from "@/components/EcommerceComponents/PaginationEcommerce/PaginationEcommerce";
 
 const SweatshritPage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const totalPages = 5;
 
@@ -19,10 +17,6 @@ const SweatshritPage = () => {
     <div className="flex h-screen overflow-hidden">
       <div className="bg-white relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
         <main className="flex-1 p-6 overflow-y-auto lg:mx-auto lg:w-1/2 no-scrollbar">
-          <Breadcrumb
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-          />
           <div className="flex lg:flex-row flex-col justify-start lg:justify-between items-start lg:items-center pt-10 pb-5">
             <h2 className="text-3xl font-extrabold text-black pb-5 lg:pb-0">
               Sweatshirt

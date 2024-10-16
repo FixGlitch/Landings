@@ -1,11 +1,14 @@
 "use client";
 
+import Breadcrumb from "@/components/common/BreadCrumb";
 import NavbarEcommerce from "@/components/EcommerceComponents/NavbarEcommerce/NavbarEcommerce";
 import SidebarEcommerce from "@/components/EcommerceComponents/SidebarEcommerce/SideBarEcommerce";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -24,6 +27,12 @@ const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
         />
+        {pathname !== "/ecommerce" && (
+          <Breadcrumb
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          />
+        )}
         <main className="flex-1 overflow-y-auto no-scrollbar">{children}</main>
       </div>
     </div>
