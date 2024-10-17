@@ -1,8 +1,15 @@
 import PantsAndSkirtPage from "./page.client";
 
-export const metadata = { title: "Pants And Skirt" };
+export async function generateMetadata() {
+  return {
+    title: "Pants And Skirt",
+    description:
+      "Check out our collection of stylish pants and skirts for all tastes.",
+    keywords: "pants, skirts, clothing, fashion, ecommerce, casual wear",
+  };
+}
 
-const Sweater = () => {
+const PantsAndSkirt = () => {
   return (
     <div>
       <PantsAndSkirtPage />
@@ -10,4 +17,4 @@ const Sweater = () => {
   );
 };
 
-export default Sweater;
+export default PantsAndSkirt;

@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
 
-const BreadcrumbEcommerce = (props: {
+interface BreadcrumbEcommerceProps {
   sidebarOpen: boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
-}) => {
-  const pathname = usePathname();
-  const pathSegments = pathname.split("/").filter((segment) => segment);
+}
 
-  return (
-    <div className="flex flex-row justify-start items-end mx-auto py-10 px-6 w-1/2">
-      <nav>
+const BreadcrumbEcommerce = React.memo(
+  ({ sidebarOpen, setSidebarOpen }: BreadcrumbEcommerceProps) => {
+    const pathname = usePathname();
+    const pathSegments = pathname.split("/").filter((segment) => segment);
+
+    return (
+      <nav aria-label="Breadcrumb navigation">
         <ol className="flex flex-wrap items-end gap-3">
           <li className="flex flex-row gap-2">
             <svg
@@ -45,9 +48,10 @@ const BreadcrumbEcommerce = (props: {
             </Link>
             <button
               aria-controls="sidebar"
+              aria-expanded={sidebarOpen}
               onClick={(e) => {
                 e.stopPropagation();
-                props.setSidebarOpen(!props.sidebarOpen);
+                setSidebarOpen(!sidebarOpen);
               }}
               className="flex items-center gap-3 font-medium"
             >
@@ -62,14 +66,13 @@ const BreadcrumbEcommerce = (props: {
                 <path
                   d="M0.819531 15.1156C0.650781 15.1156 0.510156 15.0593 0.369531 14.9468C0.116406 14.6937 0.116406 14.3 0.369531 14.0468L6.27578 7.99995L0.369531 1.9812C0.116406 1.72808 0.116406 1.33433 0.369531 1.0812C0.622656 0.828076 1.01641 0.828076 1.26953 1.0812L7.62578 7.54995C7.87891 7.80308 7.87891 8.19683 7.62578 8.44995L1.26953 14.9187C1.15703 15.0312 0.988281 15.1156 0.819531 15.1156Z"
                   fill=""
-                ></path>
+                />
               </svg>
               <span className="font-bold text-gray hover:text-ecommerce-500">
                 Category
               </span>
             </button>
           </li>
-
           {pathSegments.map((segment, index) => {
             const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
             return segment !== "ecommerce" ? (
@@ -80,7 +83,7 @@ const BreadcrumbEcommerce = (props: {
                   onClick={(e) => {
                     e.stopPropagation();
                     if (segment === "category") {
-                      props.setSidebarOpen(!props.sidebarOpen);
+                      setSidebarOpen(!sidebarOpen);
                     }
                   }}
                 >
@@ -95,7 +98,7 @@ const BreadcrumbEcommerce = (props: {
                     <path
                       d="M0.819531 15.1156C0.650781 15.1156 0.510156 15.0593 0.369531 14.9468C0.116406 14.6937 0.116406 14.3 0.369531 14.0468L6.27578 7.99995L0.369531 1.9812C0.116406 1.72808 0.116406 1.33433 0.369531 1.0812C0.622656 0.828076 1.01641 0.828076 1.26953 1.0812L7.62578 7.54995C7.87891 7.80308 7.87891 8.19683 7.62578 8.44995L1.26953 14.9187C1.15703 15.0312 0.988281 15.1156 0.819531 15.1156Z"
                       fill=""
-                    ></path>
+                    />
                   </svg>
                   <span className="font-bold text-gray hover:text-ecommerce-500">
                     {segment.charAt(0).toUpperCase() + segment.slice(1)}
@@ -106,8 +109,8 @@ const BreadcrumbEcommerce = (props: {
           })}
         </ol>
       </nav>
-    </div>
-  );
-};
+    );
+  }
+);
 
 export default BreadcrumbEcommerce;

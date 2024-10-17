@@ -1,3 +1,5 @@
+import { sweatshirtData } from "../Cards/ProductCardEcommerce/customs/productcustoms";
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -24,7 +26,9 @@ const PaginationEcommerce = ({
         <button
           key={page}
           className={`px-3 py-1 border-2 border-gray text-black  rounded-lg ${
-            currentPage === page ? "bg-ecommerce-100 text-ecommerce-500 border-2 border-ecommerce-200 font-bold" : ""
+            currentPage === page
+              ? "bg-ecommerce-100 text-ecommerce-500 border-2 border-ecommerce-200 font-bold"
+              : ""
           }`}
           onClick={() => onPageChange(page)}
         >
@@ -34,7 +38,7 @@ const PaginationEcommerce = ({
       <button
         className="px-3 py-1 font-semibold text-sm text-black cursor-pointer"
         onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === totalPages || (currentPage * 9) >= sweatshirtData.length}
       >
         Next
       </button>

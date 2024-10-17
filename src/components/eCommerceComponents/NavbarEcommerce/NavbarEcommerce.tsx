@@ -56,7 +56,7 @@ const NavbarEcommerce = (props: {
             <input
               type="search"
               placeholder="Search among 100+ products"
-              className="w-full p-4 pl-10 border border-gray rounded-lg bg-white text-black shadow-md transition duration-300 ease-in-out hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ecommerce-300 focus:ring-opacity-50"
+              className="w-full p-4 pl-10 border border-gray rounded-lg bg-gray/20 text-black shadow-md transition duration-300 ease-in-out hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ecommerce-300 focus:ring-opacity-50"
             />
             <Search
               className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray"

@@ -1,6 +1,13 @@
 import DressPage from "./page.client";
 
-export const metadata = { title: "Dress" };
+export async function generateMetadata() {
+  return {
+    title: "Dress",
+    description:
+      "Discover our stunning range of dresses, perfect for any event or season.",
+    keywords: "dresses, clothing, fashion, ecommerce, formal wear, casual",
+  };
+}
 
 const Dress = () => {
   return (
