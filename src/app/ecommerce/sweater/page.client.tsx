@@ -41,22 +41,20 @@ const SweaterPage = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <div className="bg-white relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-        <main className="flex-1 py-6 overflow-y-auto lg:mx-auto lg:w-1/2 no-scrollbar">
-          <section aria-label="Available Products">
-            <ProductList products={currentSweater} />
-          </section>
-          <footer>
-            <PaginationEcommerce
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-              aria-label="Pagination controls"
-            />
-          </footer>
-        </main>
-      </div>
+    <div className="flex-1 py-6 overflow-y-auto lg:mx-auto lg:w-1/2 no-scrollbar">
+      <main className="flex-1 py-6">
+        <section aria-label="Available Products">
+          <ProductList products={currentSweater} />
+        </section>
+      </main>
+      <footer>
+        <PaginationEcommerce
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          aria-label="Pagination controls"
+        />
+      </footer>
     </div>
   );
 };

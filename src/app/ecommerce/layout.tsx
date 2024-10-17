@@ -4,11 +4,9 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import NavbarEcommerce from "@/components/EcommerceComponents/NavbarEcommerce/NavbarEcommerce";
 import SidebarEcommerce from "@/components/EcommerceComponents/SidebarEcommerce/SideBarEcommerce";
-import BreadcrumbEcommerce from "@/components/EcommerceComponents/BreadCrumbEcommerce/BreadCrumbEcommerce";
 import LoaderEcomerce from "@/components/EcommerceComponents/LoaderEcommerce/LoaderEcommerce";
-import PageTitleEcommerce from "@/components/EcommerceComponents/PageTitleEcommerce/PageTitleEcommerce";
-import LabelsEcommerce from "@/components/EcommerceComponents/LabelsEcommerce/LabelsEcommerce";
-import FilterEcommerce from "@/components/EcommerceComponents/FilterEcommerce/FilterEcommerce";
+import FooterEcommerce from "@/components/EcommerceComponents/FooterEcommerce/FooterEcommerce";
+import HeaderEcommerce from "@/components/EcommerceComponents/HeaderEcommerce/HeaderEcommerce";
 
 const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -23,7 +21,7 @@ const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const handleLinkClick = () => {
+  const handleLoading = () => {
     setLoading(true);
     const timeoutId = setTimeout(() => {
       setLoading(false);
@@ -42,7 +40,7 @@ const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
         <SidebarEcommerce
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
-          onLoading={handleLinkClick}
+          onLoading={handleLoading}
         />
       </aside>
       <div className="bg-white relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
@@ -51,26 +49,20 @@ const ECommerceLayout = ({ children }: { children: React.ReactNode }) => {
           setSidebarOpen={setSidebarOpen}
         />
         <main className="flex-1 overflow-y-auto no-scrollbar">
-          {pathname !== "/ecommerce" && (
-            <div className="py-6 lg:mx-auto lg:w-1/2">
-              <BreadcrumbEcommerce
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-              />
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center py-5">
-                <PageTitleEcommerce />
-                <FilterEcommerce />
-              </div>
-              <LabelsEcommerce />
-            </div>
-          )}
           {loading ? (
-            <div className="flex justify-center items-center h-screen">
-              <LoaderEcomerce />
-            </div>
+            <LoaderEcomerce />
           ) : (
-            children
+            <>
+              {pathname !== "/ecommerce" && (
+                <HeaderEcommerce
+                  sidebarOpen={sidebarOpen}
+                  setSidebarOpen={setSidebarOpen}
+                />
+              )}
+              {children}
+            </>
           )}
+          <FooterEcommerce />
         </main>
       </div>
     </div>

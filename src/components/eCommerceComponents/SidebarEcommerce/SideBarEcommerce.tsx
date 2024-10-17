@@ -124,9 +124,12 @@ const SidebarEcommerce = ({
               />
             </svg>
           </button>
-          <h1 className="ml-10 text-black text-4xl md:text-xl font-bold">
+          <Link
+            href={"/ecommerce"}
+            className="ml-10 text-black text-4xl md:text-xl font-bold"
+          >
             Logo
-          </h1>
+          </Link>
         </div>
         <SeparatorEcommerce fullWidth />
         <h2 className="text-black text-xl font-bold p-6">Category</h2>
