@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
   imageSrc: string;
@@ -8,6 +8,7 @@ interface ProductCardProps {
   isNew?: boolean;
   isBestSeller?: boolean;
   isHotPromo?: boolean;
+  isFavorite?: boolean;
 }
 
 const ProductCardEcommerce = ({
@@ -17,6 +18,7 @@ const ProductCardEcommerce = ({
   isNew = false,
   isBestSeller = false,
   isHotPromo = false,
+  isFavorite = false,
 }: ProductCardProps) => {
   return (
     <div className="border rounded-xl">
@@ -34,6 +36,11 @@ const ProductCardEcommerce = ({
         {isHotPromo && (
           <span className="absolute top-3 left-3 bg-ecommerce-200 z-20 text-ecommerce-500 text-xs font-bold px-3 py-2 rounded-lg">
             HOT PROMO
+          </span>
+        )}
+        {isFavorite && (
+          <span className="absolute top-3 right-3 z-20 text-gray text-xs font-bold px-3 py-2 rounded-lg cursor-pointer">
+            <Heart/>
           </span>
         )}
         <Image

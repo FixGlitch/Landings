@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import LabelsEcommerce from "@/components/EcommerceComponents/LabelsEcommerce/LabelsEcommerce";
-import ProductCardEcommerce from "@/components/EcommerceComponents/ProductCardEcommerce/ProductCardEcommerce";
+import ProductCardEcommerce from "@/components/EcommerceComponents/Cards/ProductCardEcommerce/ProductCardEcommerce";
 import PaginationEcommerce from "@/components/EcommerceComponents/PaginationEcommerce/PaginationEcommerce";
+import {
+  sweatshirtData,
+} from "@/components/EcommerceComponents/Cards/ProductCardEcommerce/customs/productcustoms";
 
 const SweatshritPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -63,15 +66,16 @@ const SweatshritPage = () => {
             <LabelsEcommerce />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[...Array(9)].map((_, i) => (
+            {sweatshirtData.map((sweatshirt, i) => (
               <ProductCardEcommerce
                 key={i}
-                imageSrc={`/ecommerce/item-${i + 1}.jpg`}
-                productName={`Product Name ${i + 1}`}
-                price={200}
-                isNew={i === 0 || i === 4 || i === 7}
-                isBestSeller={i === 2}
-                isHotPromo={i === 3 || i === 6}
+                imageSrc={sweatshirt.imageSrc}
+                productName={sweatshirt.productName}
+                price={sweatshirt.price}
+                isNew={sweatshirt.isNew}
+                isBestSeller={sweatshirt.isBestSeller}
+                isHotPromo={sweatshirt.isHotPromo}
+                isFavorite={sweatshirt.isFavorite}
               />
             ))}
           </div>

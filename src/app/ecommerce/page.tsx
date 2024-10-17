@@ -1,7 +1,7 @@
 import CarouselEcommerce from "@/components/EcommerceComponents/CarouselEcommerce/CarouselEcommerce";
-import HotSaleCardEcommerce from "@/components/EcommerceComponents/HotSaleCardEcommerce/HotSaleCardEcommerce";
-import { spotData } from "@/components/EcommerceComponents/SpotCardEcommerce/customs/spotcustoms";
-import SpotCardEcommerce from "@/components/EcommerceComponents/SpotCardEcommerce/SpotCardEcommerce";
+import HotSaleCardEcommerce from "@/components/EcommerceComponents/Cards/HotSaleCardEcommerce/HotSaleCardEcommerce";
+import { spotData } from "@/components/EcommerceComponents/Cards/SpotCardEcommerce/customs/spotcustoms";
+import SpotCardEcommerce from "@/components/EcommerceComponents/Cards/SpotCardEcommerce/SpotCardEcommerce";
 
 export const metadata = { title: "Ecommerce" };
 

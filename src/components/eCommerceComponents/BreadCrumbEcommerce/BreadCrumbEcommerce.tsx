@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Breadcrumb = (props: {
+const BreadcrumbEcommerce = (props: {
   sidebarOpen: boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
@@ -39,7 +39,7 @@ const Breadcrumb = (props: {
             </svg>
             <Link
               className="flex items-center gap-3.5 font-bold text-black hover:text-ecommerce-500"
-              href="/"
+              href="/ecommerce"
             >
               Main Page
             </Link>
@@ -71,11 +71,8 @@ const Breadcrumb = (props: {
           </li>
 
           {pathSegments.map((segment, index) => {
-            const href = `/${pathSegments
-              .slice(0, index + 1)
-              .join("/ecommerce")}`;
-
-            return (
+            const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
+            return segment !== "ecommerce" ? (
               <li key={index}>
                 <Link
                   className="flex items-center gap-3 font-medium"
@@ -105,7 +102,7 @@ const Breadcrumb = (props: {
                   </span>
                 </Link>
               </li>
-            );
+            ) : null;
           })}
         </ol>
       </nav>
@@ -113,4 +110,4 @@ const Breadcrumb = (props: {
   );
 };
 
-export default Breadcrumb;
+export default BreadcrumbEcommerce;

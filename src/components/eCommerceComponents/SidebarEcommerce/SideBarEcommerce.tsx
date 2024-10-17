@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Trash } from "lucide-react";
 import SidebarLinkGroup from "@/components/Sidebar/SidebarComponents/SidebarLInkGroup";
-import Separator from "@/components/common/Separator";
+import SeparatorEcommerce from "@/components/EcommerceComponents/ui/SeparatorEcommerce";
 import {
   colorsItems,
   ecommerceItems,
@@ -17,11 +17,13 @@ import {
 interface SidebarEcommerceProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
+  onLoading: () => void;
 }
 
 const SidebarEcommerce = ({
   sidebarOpen,
   setSidebarOpen,
+  onLoading,
 }: SidebarEcommerceProps) => {
   const pathname = usePathname();
   const trigger = useRef<HTMLButtonElement>(null);
@@ -102,23 +104,23 @@ const SidebarEcommerce = ({
               <path
                 d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                 stroke="#6438e2"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M12 8L8 12L12 16"
                 stroke="#6438e2"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M16 12H8"
                 stroke="#6438e2"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -126,15 +128,18 @@ const SidebarEcommerce = ({
             Logo
           </h1>
         </div>
-        <Separator fullWidth />
+        <SeparatorEcommerce fullWidth />
         <h2 className="text-black text-xl font-bold p-6">Category</h2>
         <ul className="mb-6 flex flex-col gap-1.5">
           {ecommerceItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
+                onClick={onLoading}
                 className={`group relative flex items-center gap-2.5 rounded-md mx-10 py-2 font-medium text-black hover:font-semibold duration-300 ease-in-out hover:text-ecommerce-500 ${
-                  pathname === item.href ? "text-ecommerce-500 font-semibold " : ""
+                  pathname === item.href
+                    ? "text-ecommerce-500 font-semibold "
+                    : ""
                 }`}
               >
                 {item.label}
@@ -142,7 +147,7 @@ const SidebarEcommerce = ({
             </li>
           ))}
         </ul>
-        <Separator />
+        <SeparatorEcommerce />
         <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
           <nav>
             <h2 className="text-black font-semibold p-6">Filter by:</h2>

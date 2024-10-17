@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // Import usePathname
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Loader from "@/components/common/Loader";
 import "./globals.css";
@@ -12,6 +13,7 @@ export default function RootLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -28,7 +30,7 @@ export default function RootLayout({
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
           <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
             <main className="flex-1 overflow-auto">
-              {loading ? (
+              {loading && pathname === "/" ? (
                 <div className="flex justify-center items-center h-screen">
                   <Loader />
                 </div>

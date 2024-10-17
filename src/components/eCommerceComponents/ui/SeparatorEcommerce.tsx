@@ -2,7 +2,7 @@ interface SeparatorProps {
   fullWidth?: boolean;
 }
 
-const Separator = ({ fullWidth = false }: SeparatorProps) => {
+const SeparatorEcommerce = ({ fullWidth = false }: SeparatorProps) => {
   return (
     <div
       className={`mx-auto border-b-2 border-gray ${
@@ -12,4 +12,4 @@ const Separator = ({ fullWidth = false }: SeparatorProps) => {
   );
 };
 
-export default Separator;
+export default SeparatorEcommerce;
